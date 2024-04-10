@@ -14,11 +14,13 @@ function opcionModificar($objViaje){
     $opcion2 = trim(fgets(STDIN));
     switch ($opcion2) {
         case 1://Modificar destino
+            echo "Destino actual: " . $objViaje->getDestino() . "\n";
             echo "Ingrese el nuevo destino\n";
             $destino = trim(fgets(STDIN));
             $objViaje->setDestino($destino);
             break; 
         case 2://Modificar la cantidad maxima de pasajeros
+            echo "La cantidad maxima de pasajeros actual es: " . $objViaje->getCantMaxPasajeros() . "\n";
             echo "Ingrese la nueva cantidad maxima de pasajeros\n";
             $cantMaxPasajeros = trim(fgets(STDIN));
             $objViaje->setCantMaxPasajeros($cantMaxPasajeros);
@@ -116,6 +118,7 @@ function opcionModificar($objViaje){
             break;
         case 4://modificar responsable
             echo "Ha decidido modificar el responsable\n";
+            echo "El responsable actual es: \n".$objViaje->getObjResponsableV();
             echo "Ingrese los datos del nuevo responsable\n";
             echo "Nombre: ";
             $nombreResponsable = trim(fgets(STDIN));
