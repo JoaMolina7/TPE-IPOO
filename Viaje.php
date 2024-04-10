@@ -113,7 +113,7 @@ class Viaje{
         $arregloPasajeros = $this->getColObjPasajeros();
         $cadenaPasajeros = $this->verDatosArrayObjetos($arregloPasajeros);
         return "Codigo viaje: ". $this->getCodigoViaje() ."\nDestino: ". $this->getDestino() ."\nCantidad max pasajeros: ". $this->getCantMaxPasajeros() 
-        ."\nPasajeros: \n". $cadenaPasajeros;
+        ."\nPasajeros: \n". $cadenaPasajeros . "\nResponsable: \n". $this->getObjResponsableV();
     }
 
     /**
