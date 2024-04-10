@@ -81,7 +81,7 @@ class ResponsableV{
 
     public function __toString(){
         return "Nombre: ". $this->getNombre() ."\nApellido: ". $this->getApellido() ."\nNro Documento: ". $this->getNroEmpleado() 
-        ."\nnroLicencia: ". $this->getNroLicencia() ."\n";
+        ."\nNro Licencia: ". $this->getNroLicencia() ."\n";
     }
 }
 

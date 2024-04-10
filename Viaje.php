@@ -152,14 +152,17 @@ class Viaje{
      * @param object $objPasajero Objeto de la clase Pasajero a verificar.
      * @return bool Devuelve true si el pasajero ya existe en el viaje, false en caso contrario.
      */
-    public function pasajeroYaExiste($objPasajero){
+    public function pasajeroYaExiste($objPasajero){    
+        $encontrado = false;
         $arregloPasajeros = $this->getColObjPasajeros();
-        foreach($arregloPasajeros as $cadaObjeto){
-            if($cadaObjeto->getNroDocumento() == $objPasajero->getNroDocumento()){
-                return true;
+        $i = 0;
+        while(!$encontrado && $i < count($arregloPasajeros)){
+            if($arregloPasajeros[$i]->getNroDocumento() == $objPasajero->getNroDocumento()){
+                $encontrado = true;
             }
+            $i++;
         }
-        return false;
+        return $encontrado;
     }
 
 }

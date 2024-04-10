@@ -35,27 +35,29 @@ function opcionModificar($objViaje){
             $opcion3 = trim(fgets(STDIN));
             switch ($opcion3) {
                 case 1://modificar un pasajero
+                    $encontrado = false;
+                    $i = 0;
                     echo "Ingrese el DNI del pasajero a modificar\n";
                     $DNIpasajero = trim(fgets(STDIN));
-                    $encontrado = false;
-                    foreach ($objViaje->getColObjPasajeros() as $pasajero) {
-                            if ($pasajero->getNroDocumento() == $DNIpasajero) {
-                                echo "Pasajero encontrado\n";
-                                $encontrado = true;
-                                echo "Ingrese los nuevos datos del pasajero\n";
-                                echo "Nombre: ";
-                                $nombre = trim(fgets(STDIN));
-                                echo "Apellido: ";
-                                $apellido = trim(fgets(STDIN));
-                                echo "Telefono: ";
-                                $telefono = trim(fgets(STDIN));
-                                $newPasajero = new Pasajero($nombre,$apellido,$DNIpasajero,$telefono);
-                                $objViaje->modificarPasajero($newPasajero);
-                            }
+                    while($encontrado && $i < count($objViaje->getColObjPasajeros())) {
+                        if ($objViaje->getColObjPasajeros()[$i]->getNroDocumento() == $DNIpasajero) {
+                            echo "Pasajero encontrado\n";
+                            $encontrado = true;
+                            echo "Ingrese los nuevos datos del pasajero\n";
+                            echo "Nombre: ";
+                            $nombre = trim(fgets(STDIN));
+                            echo "Apellido: ";
+                            $apellido = trim(fgets(STDIN));
+                            echo "Telefono: ";
+                            $telefono = trim(fgets(STDIN));
+                            $newPasajero = new Pasajero($nombre,$apellido,$DNIpasajero,$telefono);
+                            $objViaje->modificarPasajero($newPasajero, $i);
+                        }
+                        $i++;
                     }
-                            if($encontrado == false){
-                                echo "Pasajero no encontrado\n";
-                             }
+                    if(!$encontrado){
+                        echo "Pasajero no encontrado\n";
+                    }
                     break;
                     case 2://cambiar todos los pasajeros
                         echo "Ha elegido cambiar algunos pasajeros\n";
