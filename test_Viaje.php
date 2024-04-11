@@ -39,7 +39,7 @@ function opcionModificar($objViaje){
                     $i = 0;
                     echo "Ingrese el DNI del pasajero a modificar\n";
                     $DNIpasajero = trim(fgets(STDIN));
-                    while($encontrado && $i < count($objViaje->getColObjPasajeros())) {
+                    while(!$encontrado && $i < count($objViaje->getColObjPasajeros())) {
                         if ($objViaje->getColObjPasajeros()[$i]->getNroDocumento() == $DNIpasajero) {
                             echo "Pasajero encontrado\n";
                             $encontrado = true;

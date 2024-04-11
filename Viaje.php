@@ -120,14 +120,19 @@ class Viaje{
      * Método para modificar los datos de un pasajero.
      * @param object $objPasajero Objeto de la clase Pasajero con los nuevos datos del pasajero.
      */
-    public function modificarPasajero($objPasajero){
+    public function modificarPasajero($objPasajero, $i) {
         $arregloPasajeros = $this->getColObjPasajeros();
-        foreach($arregloPasajeros as $cadaObjeto){
-            if($cadaObjeto->getNroDocumento() == $objPasajero->getNroDocumento()){
-                $cadaObjeto->setNombre($objPasajero->getNombre());
-                $cadaObjeto->setApellido($objPasajero->getApellido());
-                $cadaObjeto->setTelefono($objPasajero->getTelefono());
+        $encontrado = false;
+        $indice = 0;
+    
+        while (!$encontrado && $indice < count($arregloPasajeros)) {
+            if ($arregloPasajeros[$indice]->getNroDocumento() == $objPasajero->getNroDocumento()) {
+                $arregloPasajeros[$indice]->setNombre($objPasajero->getNombre());
+                $arregloPasajeros[$indice]->setApellido($objPasajero->getApellido());
+                $arregloPasajeros[$indice]->setTelefono($objPasajero->getTelefono());
+                $encontrado = true;
             }
+            $indice++;
         }
     }
 
