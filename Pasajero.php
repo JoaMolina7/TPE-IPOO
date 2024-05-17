@@ -23,12 +23,16 @@ class Pasajero{
     private $apellido;
     private $nroDocumento;
     private $telefono;
+    private $numAsiento;
+    private $numTicket;
 
-    public function __construct($nombre,$apellido,$nroDocumento,$telefono){
+    public function __construct($nombre,$apellido,$nroDocumento,$telefono,$numAsiento,$numTicket){
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->nroDocumento = $nroDocumento;
         $this->telefono = $telefono;
+        $this->numAsiento = $numAsiento;
+        $this->numTicket = $numTicket;
     }
 
     //Métodos de acceso
@@ -47,48 +51,47 @@ class Pasajero{
     public function getTelefono(){
         return $this->telefono;
     }
+    public function getNumAsiento(){
+        return $this->numAsiento;
+    }
+    public function getNumTicket(){
+        return $this->numTicket;
+    }
 
     //Setters
 
-    /**
-     * Set nombre
-     * @param string $newNombre
-     */
     public function setNombre($newNombre){
         $this->nombre = $newNombre;
     }
-    /**
-     * Set apellido
-     * @param string $newApellido
-     */
     public function setApellido($newApellido){
         $this->apellido = $newApellido;
     }
-    /**
-     * Set nroDocumento
-     * @param int $newNroDocumento
-     */
     public function setNroDocumento($newNroDocumento){
         $this->nroDocumento = $newNroDocumento;
     }
-    /**
-     * Set telefono
-     * @param int $newTelefono
-     */
     public function setTelefono($newTelefono){
         $this->telefono = $newTelefono;
+    }
+    public function setNumAsiento($newNumAsiento){
+        $this->numAsiento = $newNumAsiento;
+    }
+    public function setNumTicket($newNumTicket){
+        $this->numTicket = $newNumTicket;
     }
 
     public function __toString(){
         return "Nombre: ". $this->getNombre() ."\nApellido: ". $this->getApellido() ."\nNro Documento: ". $this->getNroDocumento() 
-        ."\nTelefono: ". $this->getTelefono() ."\n";
+        ."\nTelefono: ". $this->getTelefono() ."\n" ."Num. Asiento: ". $this->getNumAsiento() ."\nNum. Ticket: ". $this->getNumTicket();
     }
+    
+    /**Implementar el método darPorcentajeIncremento() que retorne el porcentaje que debe aplicarse como incremento según
+    las características del pasajero. Por último, para los pasajeros comunes el porcentaje de incremento es del 10 %. */
+
+    public function darPorcentajeIncremento(){
+        $porcentaje = 10;
+        return $porcentaje;
+    }
+    
+    
 }
-
-
-
-
-
-
-
 ?>
