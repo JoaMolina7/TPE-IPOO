@@ -59,6 +59,7 @@ las características del pasajero. Para un pasajero VIP se incrementa el importe
 acumuladas supera a las 300 millas se realiza un incremento del 30%. */
 
     public function darPorcentajeIncremento(){
+        $porcentaje = parent::darPorcentajeIncremento();//Solo para mostrar que es una funcion polimorfica
         $porcentaje = 35;
         if($this->getCantMillas() > 300){
             $porcentaje = 30;

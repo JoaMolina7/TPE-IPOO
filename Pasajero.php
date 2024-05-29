@@ -85,10 +85,10 @@ class Pasajero{
     }
     
     /**Implementar el método darPorcentajeIncremento() que retorne el porcentaje que debe aplicarse como incremento según
-    las características del pasajero. Por último, para los pasajeros comunes el porcentaje de incremento es del 10 %. */
+    las características del pasajero.*/
 
     public function darPorcentajeIncremento(){
-        $porcentaje = 10;
+        $porcentaje = 0;
         return $porcentaje;
     }
     

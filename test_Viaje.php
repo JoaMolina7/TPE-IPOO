@@ -4,6 +4,7 @@ include_once('Pasajero.php');
 include_once('ResponsableV.php');
 include_once('PasajeroVIP.php');
 include_once('PasajeroEspecial.php');
+include_once('PasajeroEstandar.php');
 
 function opcionModificar($objViaje){
     do{
@@ -89,7 +90,7 @@ function ingresarPasajeroStandard() {
     $numAsiento = trim(fgets(STDIN));
     echo "Nro Ticket: ";
     $numTicket = trim(fgets(STDIN));
-    return new Pasajero($nombre, $apellido, $nroDocumento, $telefono, $numAsiento, $numTicket);
+    return new PasajeroEstandar($nombre, $apellido, $nroDocumento, $telefono, $numAsiento, $numTicket);
 }
 
 function ingresarPasajeroVIP() {
